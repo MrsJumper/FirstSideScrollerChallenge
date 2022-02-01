@@ -63,7 +63,7 @@ add([
 ])
 add([
 	// list of components
-	sprite("shortchain_2"),
+	sprite("chain"),
   scale (.50),
   pos (width()/2+25,0)
 	
@@ -72,15 +72,25 @@ add([
 add([
 	// list of components
 	sprite("window"),
-  scale (.30),
-  pos (width()/2,40)
+  //scale (.30),
+  pos (width()/2-180,170)
 	
   //solid(),
 ])
+
+add([
+	// list of components
+	sprite("star"),
+  //scale (.30),
+  pos (width()/2-100,200)
+	
+  //solid(),
+])
+
 add([
   text ("Crabby"),
-  scale(0.5),
-  pos (width()/2+25,100)
+  //scale(0.5),
+  pos (width()/2,400)
 ])
 add([
 	// list of components

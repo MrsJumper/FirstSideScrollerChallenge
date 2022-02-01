@@ -2790,19 +2790,21 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       pos(50, 50)
     ]);
     add([
-      sprite("shortchain_2"),
+      sprite("chain"),
       scale(0.5),
       pos(width() / 2 + 25, 0)
     ]);
     add([
       sprite("window"),
-      scale(0.3),
-      pos(width() / 2, 40)
+      pos(width() / 2 - 180, 170)
+    ]);
+    add([
+      sprite("star"),
+      pos(width() / 2 - 100, 200)
     ]);
     add([
       text("Crabby"),
-      scale(0.5),
-      pos(width() / 2 + 25, 100)
+      pos(width() / 2, 400)
     ]);
     add([
       sprite("play"),
