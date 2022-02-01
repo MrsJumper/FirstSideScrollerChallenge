@@ -96,7 +96,7 @@ add([
 	// list of components
 	sprite("play"),
   scale (.60),
-  pos (150,150),
+  pos (width()/2+100,550),
   area(),
 	"play",
   

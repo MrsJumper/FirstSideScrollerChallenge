@@ -2809,7 +2809,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     add([
       sprite("play"),
       scale(0.6),
-      pos(150, 150),
+      pos(width() / 2 + 100, 550),
       area(),
       "play",
       onClick("play", (play) => go("game"))
