@@ -2747,7 +2747,10 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   }, "default");
 
   // code/main.js
-  Es();
+  Es({
+    scaleMode: "stretch",
+    fullscreen: true
+  });
   loadSprite("Bubble1", "sprites/Bubble1.png");
   loadSprite("Sand", "sprites/Sand.png");
   loadSprite("LightWaterBG", "sprites/LightWaterBG.png");
@@ -2805,8 +2808,9 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       sprite("play"),
       scale(0.6),
       pos(150, 150),
+      area(),
       "play",
-      {}
+      onClick("play", (play) => go("game"))
     ]);
   });
   scene("game", () => {
@@ -2815,6 +2819,18 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     ]);
     add([
       sprite("DarkWaterBG", { width: width(), height: height() })
+    ]);
+    add([
+      rect(width(), 100),
+      pos(0, height() - 48),
+      outline(4),
+      area(),
+      solid(),
+      color(194, 178, 128)
+    ]);
+    add([
+      sprite("Sand", { width: width(), height: height() }),
+      area()
     ]);
     const crab = add([
       sprite("crab"),
@@ -2844,18 +2860,6 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       sprite("scoreboard"),
       scale(0.5),
       pos(0, 40)
-    ]);
-    add([
-      rect(width(), 48),
-      pos(0, height() - 48),
-      outline(4),
-      area(),
-      solid(),
-      color(194, 178, 128)
-    ]);
-    add([
-      sprite("Sand", { width: width(), height: height() }),
-      area()
     ]);
     onKeyPress("space", () => {
       if (crab.isGrounded()) {

@@ -1,7 +1,11 @@
 import kaboom from "kaboom"
 
 // initialize context
-kaboom()
+kaboom({
+    scaleMode: "stretch",
+    
+    fullscreen: true,
+});
 
 // load assets
 loadSprite("Bubble1", "sprites/Bubble1.png");
@@ -18,6 +22,7 @@ loadSprite("scoreboard", "sprites/scoreboard.png");
 loadSprite("play", "sprites/play.png");
 
 scene ("start", ()=> {
+  
   add([
 	// list of components
 	sprite("LightWaterBG",{width:width(),height:height()}),
@@ -82,17 +87,15 @@ add([
 	sprite("play"),
   scale (.60),
   pos (150,150),
-  
+  area(),
 	"play",
-  {
-    
-  },
+  
+    onClick(('play'),(play) => go("game")),
 
+  
 ]);
-     
 
 })
-
 scene ("game", () => {
   add([
 	// list of components
@@ -104,7 +107,21 @@ scene ("game", () => {
 	sprite("DarkWaterBG",{width:width(),height:height()}),
 	
 ])
-
+// add platform
+add([
+	rect(width(), 100),
+	pos(0, height() - 48),
+	outline(4),
+	area(),
+	solid(),
+	color(194, 178, 128),
+])
+add([
+	// list of components
+	sprite("Sand",{width:width(),height:height()}),
+	area(),
+  //solid(),
+])
 // add a character to screen
 const crab = add([
 	// list of components
@@ -145,21 +162,7 @@ add([
   //solid(),
 ])
 
-// add platform
-add([
-	rect(width(), 48),
-	pos(0, height() - 48),
-	outline(4),
-	area(),
-	solid(),
-	color(194, 178, 128),
-])
-add([
-	// list of components
-	sprite("Sand",{width:width(),height:height()}),
-	area(),
-  //solid(),
-])
+
 
 //.jump () when space key is pressed (click in game window before testing)
 onKeyPress("space", () => {
